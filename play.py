@@ -3,10 +3,9 @@ ROW_COUNT = 6
 COLUMN_COUNT = 7
 board = np.zeros((ROW_COUNT, COLUMN_COUNT))
 data = [5] * 7
-t = 1
 
 
-def check():
+def connect_four():
     vert = 0
     horiz = 0
     # Check horizontal
@@ -41,6 +40,7 @@ def check():
                 return True
 
 
+t = 1
 game_over = False
 while not game_over:
     print(board)
@@ -49,7 +49,7 @@ while not game_over:
         data[m] -= 1
     if board[data[m]][m] == 0:
         board[data[m]][m] = t
-    if check():
+    if connect_four():
         print(board)
         print(f"connect 4 for player {t}")
         game_over = True
